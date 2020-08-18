@@ -1,9 +1,19 @@
-# Fabric Example Mod
+# NAFIS
 
-## Setup
+## NAFIS?
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+NAFIS stands for
+ - *N*ot
+ - *A*
+ - ***F*orgery**
+ - *I*
+ - *S*wear
+
+It's based around forging and customizing your weapons, taking some inspiration from, but not plagiarizing Tinkers.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This mod is published under the DBAD v1.1 License
+For more information visit https://dbad-license.org and/or read the attached LICENSE file.
+
+If you decide to incorporate parts of this mod into your own codebase, I'd appreciate a quick heads up, as well as a mention in the credits.
