@@ -1,0 +1,111 @@
+{
+    "textures": {
+        "t1": "nafis:block/basic_forge_top",
+        "t2": "nafis:block/basic_forge_connector",
+        "t3": "nafis:block/basic_forge_base_1",
+        "t4": "nafis:block/basic_forge_base_2",
+		"particle" : "minecraft:block/anvil_top"
+    },
+    "display": {
+        "gui": {
+            "rotation": [ 30, 45, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.625, 0.625, 0.625 ]
+        },
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0 ],
+            "scale": [ 0.25, 0.25, 0.25 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "head": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, 315, 0 ],
+            "translation": [ 0, 2.5, 0 ],
+            "scale": [ 0.4, 0.4, 0.4 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 75, 315, 0 ],
+            "translation": [ 0, 2.5, 0 ],
+            "scale": [ 0.375, 0.375, 0.375 ]
+        }
+    },
+    "elements": [
+        {
+            "name": "Base2",
+            "from": [ 5, 1, 4 ], 
+            "to": [ 11, 4, 8 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#t4", "uv": [ 0, 0, 6, 3 ] },
+                "east": { "texture": "#t4", "uv": [ 10, 0, 14, 3 ] },
+                "south": { "texture": "#t4", "uv": [ 0, 4, 6, 7 ] },
+                "west": { "texture": "#t4", "uv": [ 6, 4, 10, 7 ] },
+                "up": { "texture": "#t4", "uv": [ 0, 8, 6, 12 ] },
+                "down": { "texture": "#t4", "uv": [ 6, 8, 12, 12 ] }
+            }
+        },
+        {
+            "name": "Connector",
+            "from": [ 6.5, 3, 7 ], 
+            "to": [ 9.5, 10, 10 ], 
+            "rotation": { "origin": [ 8, 8, 8 ], "axis": "x", "angle": 22.5 },
+            "faces": {
+                "north": { "texture": "#t2", "uv": [ 0, 0, 3, 7 ] },
+                "east": { "texture": "#t2", "uv": [ 3, 0, 6, 7 ] },
+                "south": { "texture": "#t2", "uv": [ 6, 0, 9, 7 ] },
+                "west": { "texture": "#t2", "uv": [ 9, 0, 12, 7 ] },
+                "up": { "texture": "#t2", "uv": [ 12, 0, 15, 3 ] },
+                "down": { "texture": "#t2", "uv": [ 12, 3, 15, 6 ] }
+            }
+        },
+        {
+            "name": "Base1",
+            "from": [ 4, 0, 0 ], 
+            "to": [ 12, 2, 8 ], 
+            "faces": {
+                "north": { "texture": "#t3", "uv": [ 0, 0, 8, 2 ] },
+                "east": { "texture": "#t3", "uv": [ 0, 2, 8, 4 ] },
+                "south": { "texture": "#t3", "uv": [ 0, 4, 8, 6 ] },
+                "west": { "texture": "#t3", "uv": [ 0, 6, 8, 8 ] },
+                "up": { "texture": "#t3", "uv": [ 8, 0, 16, 8 ] },
+                "down": { "texture": "#t3", "uv": [ 8, 8, 16, 16 ] }
+            }
+        },
+        {
+            "name": "Top",
+            "from": [ 4, 9, 0 ], 
+            "to": [ 12, 11, 16 ], 
+            "faces": {
+                "north": { "texture": "#t1", "uv": [ 8, 0, 10, 8 ], "rotation": 90 },
+                "east": { "texture": "#t1", "uv": [ 10, 0, 12, 16 ], "rotation": 90 },
+                "south": { "texture": "#t1", "uv": [ 8, 8, 10, 16 ], "rotation": 90 },
+                "west": { "texture": "#t1", "uv": [ 12, 0, 14, 16 ], "rotation": 90 },
+                "up": { "texture": "#t1", "uv": [ 0, 0, 8, 16 ] },
+                "down": { "texture": "#t1", "uv": [ 0, 0, 8, 16 ] }
+            }
+        },
+        {
+            "name": "Base3",
+            "from": [ 5, 0, 8 ], 
+            "to": [ 11, 4, 12 ], 
+            "shade": false,
+            "faces": {
+                "north": { "texture": "#t4", "uv": [ 0, 0, 6, 4 ] },
+                "east": { "texture": "#t4", "uv": [ 6, 0, 10, 4 ] },
+                "south": { "texture": "#t4", "uv": [ 0, 4, 6, 8 ] },
+                "west": { "texture": "#t4", "uv": [ 10, 4, 14, 8 ] },
+                "up": { "texture": "#t4", "uv": [ 0, 12, 6, 16 ] },
+                "down": { "texture": "#t4", "uv": [ 6, 12, 12, 16 ] }
+            }
+        }
+    ]
+}

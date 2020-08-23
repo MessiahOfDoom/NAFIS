@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:wooden_shovel"
+        },
+        {
+            "item": "nafis:bp_empty"
+        }
+    ],
+    "result": {
+        "item": "nafis:bp_shovel_head",
+        "count": 1
+    }
+}

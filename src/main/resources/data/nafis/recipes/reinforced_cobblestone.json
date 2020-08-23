@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "tag": "c:cobblestones"
+        },
+        {
+            "tag": "c:cobblestones"
+        },
+        {
+            "item": "minecraft:clay_ball"
+        }
+    ],
+    "result": {
+        "item": "nafis:reinforced_cobblestone",
+        "count": 1
+    }
+}

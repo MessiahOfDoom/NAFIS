@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_tool_handle"
+        },
+        {
+            "tag": "c:copper_ingots"
+        },
+        {
+            "tag": "c:copper_ingots"
+        }
+    ],
+    "result": {
+        "item": "nafis:copper_tool_handle",
+        "count": 1
+    }
+}

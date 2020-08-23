@@ -1,0 +1,8 @@
+{
+    "parent": "nafis:item/presets/pickaxe_head",
+	"textures": {
+        "t1": "nafis:item/tool_head_iron_1",
+        "t2": "nafis:item/tool_head_iron_2",
+        "t3": "nafis:item/tool_head_iron_3"
+    }
+}

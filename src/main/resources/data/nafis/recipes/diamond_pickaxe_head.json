@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_pickaxe_head"
+        },
+        {
+            "tag": "c:diamonds"
+        },
+        {
+            "tag": "c:diamonds"
+        },
+        {
+            "tag": "c:diamonds"
+        }
+    ],
+    "result": {
+        "item": "nafis:diamond_pickaxe_head",
+        "count": 1
+    }
+}

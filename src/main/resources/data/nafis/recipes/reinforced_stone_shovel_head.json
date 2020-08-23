@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_shovel_head"
+        },
+        {
+            "item": "nafis:reinforced_stone"
+        },
+        {
+            "item": "nafis:reinforced_stone"
+        },
+        {
+            "item": "nafis:reinforced_stone"
+        }
+    ],
+    "result": {
+        "item": "nafis:reinforced_stone_shovel_head",
+        "count": 1
+    }
+}

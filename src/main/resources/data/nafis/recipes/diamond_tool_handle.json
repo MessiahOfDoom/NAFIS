@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_tool_handle"
+        },
+        {
+            "tag": "c:diamonds"
+        },
+        {
+            "tag": "c:diamonds"
+        }
+    ],
+    "result": {
+        "item": "nafis:diamond_tool_handle",
+        "count": 1
+    }
+}

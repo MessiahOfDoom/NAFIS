@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        " # ",
+        "C#C"
+    ],
+    "key": {
+        "#": {
+            "item": "nafis:reinforced_stone"
+        },
+        "C": {
+            "item": "nafis:reinforced_cobblestone"
+        }
+    },
+    "result": {
+        "item": "nafis:basic_forge",
+        "count": 1
+    }
+}

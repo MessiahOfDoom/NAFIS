@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "#C#",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "tag": "c:cobblestones"
+        },
+        "C": {
+            "item": "minecraft:clay"
+        }
+    },
+    "result": {
+        "item": "nafis:reinforced_cobblestone",
+        "count": 4
+    }
+}
