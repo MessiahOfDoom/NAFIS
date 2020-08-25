@@ -1,0 +1,7 @@
+{
+    "parent": "nafis:item/presets/wide_guard",
+	"textures": {
+        "t1": "nafis:item/tool_head_copper_1",
+        "t2": "nafis:item/tool_head_copper_2"
+    }
+}

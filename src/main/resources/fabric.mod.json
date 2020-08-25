@@ -4,17 +4,17 @@
   "version": "${version}",
 
   "name": "NAFIS",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "This is yet another tool/weapon customization mod.",
   "authors": [
-    "Me!"
+    "MessiahOfDoom"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://schneider-oliver.de",
+    "sources": "https://github.com/MessiahOfDoom/NAFIS"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "GPLv3",
+  "icon": "assets/nafis/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -36,6 +36,5 @@
 	"doomedfabric": ">=1.1.0"
   },
   "suggests": {
-    "flamingo": "*"
   }
 }

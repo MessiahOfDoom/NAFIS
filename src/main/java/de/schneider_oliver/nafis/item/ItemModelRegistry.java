@@ -13,6 +13,7 @@ public class ItemModelRegistry {
 		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_AXE, new CustomToolRenderer());
 		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_SHOVEL, new CustomToolRenderer());
 		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_HOE, new CustomToolRenderer());
+		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_BROADSWORD, new CustomToolRenderer());
 	}
 	
 }

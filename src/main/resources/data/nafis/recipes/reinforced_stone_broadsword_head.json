@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_broadsword_head"
+        },
+        {
+            "item": "nafis:reinforced_stone"
+        },
+        {
+            "item": "nafis:reinforced_stone"
+        }
+    ],
+    "result": {
+        "item": "nafis:reinforced_stone_broadsword_head",
+        "count": 1
+    }
+}

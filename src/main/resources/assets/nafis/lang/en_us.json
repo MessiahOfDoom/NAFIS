@@ -4,6 +4,9 @@
 	"part.nafis.axe_head" : "%s Axe Head",
 	"part.nafis.shovel_head": "%s Shovel Head",
 	"part.nafis.hoe_head": "%s Hoe Head",
+	"part.nafis.broadsword_head": "%s Broadsword Head",
+	"part.nafis.wide_guard": "%s Wide Guard",
+	"part.nafis.basic_weapon_handle": "%s Weapon Handle",
 	
 	"material.nafis.wood" : "Wooden",
 	"material.nafis.stone" : "Stone",
@@ -17,6 +20,7 @@
 	"item.nafis.nafis_axe" : "%s Axe",
 	"item.nafis.nafis_shovel" : "%s Shovel",
 	"item.nafis.nafis_hoe" : "%s Hoe",
+	"item.nafis.nafis_broadsword" : "%s Sword",
 	
 	"item.nafis.bp_empty" : "Empty Blueprint",
 	"item.nafis.bp_tool_handle" : "Tool Handle Blueprint",
@@ -24,9 +28,15 @@
 	"item.nafis.bp_axe_head" : "Axe Head Blueprint",
 	"item.nafis.bp_shovel_head" : "Shovel Head Blueprint",
 	"item.nafis.bp_hoe_head" : "Hoe Head Blueprint",
+	"item.nafis.bp_broadsword_head" : "Broadsword Head Blueprint",
+	"item.nafis.bp_wide_guard" : "Wide Guard Blueprint",
+	"item.nafis.bp_weapon_handle" : "Weapon Handle Blueprint",
+	
 	"item.nafis.copper_ingot" : "Copper Ingot",
+	"item.nafis.saw" : "Saw",
 	
 	"block.nafis.basic_forge" : "Basic Forge",
+	"block.nafis.improved_forge" : "Improved Forge",
 	"block.nafis.copper_ore" : "Copper Ore",
 	"block.nafis.copper_block" : "Block of Copper",
 	"block.nafis.reinforced_stone" : "Reinforced Stone",

@@ -12,6 +12,10 @@ public class IdentUtils {
 	public static final Identifier TOOL_PART_SHOVEL_HEAD = ident("shovel_head");
 	public static final Identifier TOOL_PART_HOE_HEAD = ident("hoe_head");
 	
+	public static final Identifier TOOL_PART_WEAPON_HANDLE = ident("basic_weapon_handle");
+	public static final Identifier TOOL_PART_WIDE_GUARD = ident("wide_guard");
+	public static final Identifier TOOL_PART_BROADSWORD_HEAD = ident("broadsword_head");
+	
 	public static Identifier ident(String name) {
 		return new Identifier(Reference.MOD_ID, name);
 	}

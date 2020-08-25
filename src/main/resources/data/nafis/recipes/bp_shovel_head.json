@@ -4,6 +4,9 @@
         {
             "item": "minecraft:wooden_shovel"
         },
+		{
+            "item": "minecraft:wooden_shovel"
+        },
         {
             "item": "nafis:bp_empty"
         }

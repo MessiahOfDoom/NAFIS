@@ -16,5 +16,7 @@ public class NBTKeys {
 	public static final String SUBKEY_SPEEDMULT = "speedmult";
 	public static final String SUBKEY_DURABILITY = "durability";
 	public static final String SUBKEY_MATERIAL = "material";
+	public static final String SUBKEY_ATTACKSPEED = "atkspeed";
+	public static final String SUBKEY_ATTACKDAMAGE = "atkdamage";
 	
 }

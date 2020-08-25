@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_wide_guard"
+        },
+        {
+            "item": "nafis:reinforced_stone"
+        }
+    ],
+    "result": {
+        "item": "nafis:reinforced_stone_wide_guard",
+        "count": 1
+    }
+}

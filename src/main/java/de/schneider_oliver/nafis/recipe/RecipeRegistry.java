@@ -41,6 +41,13 @@ public class RecipeRegistry {
 				return new ItemStack(ItemRegistry.NAFIS_HOE);
 			}
 		});
+		ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new AbstractForgeRecipe(NafisSets.setByID(TOOL_PART_BROADSWORD_HEAD), NafisSets.setByID(TOOL_PART_WIDE_GUARD), NafisSets.setByID(TOOL_PART_WEAPON_HANDLE)) {
+
+			@Override
+			public ItemStack getCraftedStackNoNBT() {
+				return new ItemStack(ItemRegistry.NAFIS_BROADSWORD);
+			}
+		});
 	}
 
 }

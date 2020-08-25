@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "nafis:block/improved_forge",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "nafis:block/improved_forge",
+	  "y": 90
+    },
+    "facing=south": {
+      "model": "nafis:block/improved_forge",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "nafis:block/improved_forge"
+    }
+  }
+}

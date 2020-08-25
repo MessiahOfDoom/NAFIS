@@ -1,19 +1,19 @@
 package de.schneider_oliver.nafis.screen.handler;
 
-import de.schneider_oliver.nafis.screen.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
 public abstract class AbstractForgeScreenHandler extends ScreenHandler{
 
 	protected final Inventory inventory;
 	
-	public AbstractForgeScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(ScreenHandlingRegistry.BASIC_FORGE_SCREEN_HANDLER, syncId);
+	public AbstractForgeScreenHandler(ScreenHandlerType<? extends AbstractForgeScreenHandler> type, int syncId, PlayerInventory playerInventory, Inventory inventory) {
+        super(type, syncId);
         this.inventory = inventory;
 		inventory.onOpen(playerInventory.player);
         init(syncId, playerInventory, inventory);

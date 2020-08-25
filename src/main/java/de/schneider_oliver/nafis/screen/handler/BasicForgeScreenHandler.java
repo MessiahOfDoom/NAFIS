@@ -3,6 +3,7 @@ package de.schneider_oliver.nafis.screen.handler;
 import de.schneider_oliver.nafis.block.entity.AbstractForgeBlockEntity;
 import de.schneider_oliver.nafis.block.entity.BasicForgeBlockEntity;
 import de.schneider_oliver.nafis.screen.OutputSlot;
+import de.schneider_oliver.nafis.screen.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.network.PacketByteBuf;
@@ -19,7 +20,7 @@ public class BasicForgeScreenHandler extends AbstractForgeScreenHandler{
 	}
 
 	public BasicForgeScreenHandler(int syncId, PlayerInventory playerInventory, AbstractForgeBlockEntity forgeBlockEntity) {
-		super(syncId, playerInventory, forgeBlockEntity);
+		super(ScreenHandlingRegistry.BASIC_FORGE_SCREEN_HANDLER, syncId, playerInventory, forgeBlockEntity);
 	}
 
 	@Override

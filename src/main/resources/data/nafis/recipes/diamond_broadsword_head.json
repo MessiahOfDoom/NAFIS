@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_broadsword_head"
+        },
+        {
+            "tag": "c:diamonds"
+        },
+        {
+            "tag": "c:diamonds"
+        }
+    ],
+    "result": {
+        "item": "nafis:diamond_broadsword_head",
+        "count": 1
+    }
+}

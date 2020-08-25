@@ -8,6 +8,7 @@ import de.schneider_oliver.nafis.item.item.NafisAxe;
 import de.schneider_oliver.nafis.item.item.NafisHoe;
 import de.schneider_oliver.nafis.item.item.NafisPickaxe;
 import de.schneider_oliver.nafis.item.item.NafisShovel;
+import de.schneider_oliver.nafis.item.item.NafisSword;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -23,8 +24,11 @@ public class ItemRegistry {
 	public static final Item NAFIS_AXE = new NafisAxe(new Item.Settings());
 	public static final Item NAFIS_SHOVEL = new NafisShovel(new Item.Settings());
 	public static final Item NAFIS_HOE = new NafisHoe(new Item.Settings());
+	public static final Item NAFIS_BROADSWORD = new NafisSword(new Item.Settings());
 
 	public static final Item COPPER_INGOT = new Item(new Item.Settings().group(NAFIS_GROUP));
+	
+	public static final Item SAW = new Item(new Item.Settings().group(NAFIS_GROUP));
 	
 	public static final Item BLUEPRINT_EMPTY = new Item(new Item.Settings().group(NAFIS_GROUP));
 	
@@ -33,6 +37,9 @@ public class ItemRegistry {
 	public static final Item BLUEPRINT_AXE_HEAD = new ItemSelfRemainderImpl(new Item.Settings().group(NAFIS_GROUP));
 	public static final Item BLUEPRINT_SHOVEL_HEAD = new ItemSelfRemainderImpl(new Item.Settings().group(NAFIS_GROUP));
 	public static final Item BLUEPRINT_HOE_HEAD = new ItemSelfRemainderImpl(new Item.Settings().group(NAFIS_GROUP));
+	public static final Item BLUEPRINT_WEAPON_HANDLE = new ItemSelfRemainderImpl(new Item.Settings().group(NAFIS_GROUP));
+	public static final Item BLUEPRINT_WIDE_GUARD = new ItemSelfRemainderImpl(new Item.Settings().group(NAFIS_GROUP));
+	public static final Item BLUEPRINT_BROADSWORD_HEAD = new ItemSelfRemainderImpl(new Item.Settings().group(NAFIS_GROUP));
 
 
 	
@@ -41,7 +48,10 @@ public class ItemRegistry {
 		Registry.register(Registry.ITEM, ident("nafis_axe"), NAFIS_AXE);
 		Registry.register(Registry.ITEM, ident("nafis_shovel"), NAFIS_SHOVEL);
 		Registry.register(Registry.ITEM, ident("nafis_hoe"), NAFIS_HOE);
+		Registry.register(Registry.ITEM, ident("nafis_broadsword"), NAFIS_BROADSWORD);
+		
 		Registry.register(Registry.ITEM, ident("copper_ingot"), COPPER_INGOT);
+		Registry.register(Registry.ITEM, ident("saw"), SAW);
 		
 		Registry.register(Registry.ITEM, ident("bp_empty"), BLUEPRINT_EMPTY);
 		
@@ -50,6 +60,9 @@ public class ItemRegistry {
 		Registry.register(Registry.ITEM, ident("bp_axe_head"), BLUEPRINT_AXE_HEAD);
 		Registry.register(Registry.ITEM, ident("bp_shovel_head"), BLUEPRINT_SHOVEL_HEAD);
 		Registry.register(Registry.ITEM, ident("bp_hoe_head"), BLUEPRINT_HOE_HEAD);
+		Registry.register(Registry.ITEM, ident("bp_weapon_handle"), BLUEPRINT_WEAPON_HANDLE);
+		Registry.register(Registry.ITEM, ident("bp_wide_guard"), BLUEPRINT_WIDE_GUARD);
+		Registry.register(Registry.ITEM, ident("bp_broadsword_head"), BLUEPRINT_BROADSWORD_HEAD);
 		
 		PartSetRegistry.registerPartSet(ToolMaterials.WOOD, ident("wood"));
 		PartSetRegistry.registerPartSet(ToolMaterials.STONE, ident("stone"));

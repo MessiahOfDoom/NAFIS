@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "nafis:bp_broadsword_head"
+        },
+        {
+            "tag": "c:iron_ingots"
+        },
+        {
+            "tag": "c:iron_ingots"
+        }
+    ],
+    "result": {
+        "item": "nafis:iron_broadsword_head",
+        "count": 1
+    }
+}
