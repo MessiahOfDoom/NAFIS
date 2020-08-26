@@ -1,8 +1,0 @@
-{
-    "parent": "nafis:item/presets/axe_head",
-	"textures": {
-        "t1": "nafis:item/tool_head_stone_1",
-        "t2": "nafis:item/tool_head_stone_2",
-        "t3": "nafis:item/tool_head_stone_3"
-    }
-}

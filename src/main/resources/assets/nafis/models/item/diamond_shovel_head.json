@@ -1,7 +1,0 @@
-{
-    "parent": "nafis:item/presets/shovel_head",
-	"textures": {
-        "t1": "nafis:item/tool_head_diamond_1",
-        "t2": "nafis:item/tool_head_diamond_2"
-    }
-}

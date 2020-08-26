@@ -1,6 +1,0 @@
-{
-    "parent": "nafis:item/presets/weapon_handle",
-	"textures": {
-        "t1": "nafis:item/tool_handle_stone"
-    }
-}
