@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "nafis:bp_pickaxe_head"
+            "item": "nafis:bp_hoe_head"
         },
         {
             "tag": "c:copper_ingots"
@@ -15,7 +15,7 @@
         }
     ],
     "result": {
-        "item": "nafis:copper_pickaxe_head",
+        "item": "nafis:copper_hoe_head",
         "count": 1
     }
 }

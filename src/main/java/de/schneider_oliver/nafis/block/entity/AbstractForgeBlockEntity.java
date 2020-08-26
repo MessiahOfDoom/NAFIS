@@ -118,6 +118,8 @@ public abstract class AbstractForgeBlockEntity extends BlockEntity implements In
 
 	public void onInventoryChanged(int slot) {
 		if(slot != INV_SIZE - 1) {
+			recipe = null;
+			stacks.set(INV_SIZE - 1, ItemStack.EMPTY);
 			checkCrafting();
 		}
 		markDirty();

@@ -2,7 +2,7 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "nafis:bp_pickaxe_head"
+            "item": "nafis:bp_hoe_head"
         },
         {
             "tag": "c:diamonds"
@@ -15,7 +15,7 @@
         }
     ],
     "result": {
-        "item": "nafis:diamond_pickaxe_head",
+        "item": "nafis:diamond_hoe_head",
         "count": 1
     }
 }
