@@ -2,8 +2,8 @@ package de.schneider_oliver.nafis.item;
 
 import static de.schneider_oliver.nafis.utils.IdentUtils.ident;
 
+import de.schneider_oliver.doomedfabric.item.ItemSelfRemainderImpl;
 import de.schneider_oliver.nafis.block.BlockRegistry;
-import de.schneider_oliver.nafis.item.item.ItemSelfRemainderImpl;
 import de.schneider_oliver.nafis.item.item.NafisAxe;
 import de.schneider_oliver.nafis.item.item.NafisHoe;
 import de.schneider_oliver.nafis.item.item.NafisPickaxe;
