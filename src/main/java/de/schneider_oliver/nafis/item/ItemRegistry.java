@@ -35,7 +35,7 @@ public class ItemRegistry {
 	public static final Item NAFIS_SHOVEL = new NafisShovel(new Item.Settings());
 	public static final Item NAFIS_HOE = new NafisHoe(new Item.Settings());
 	public static final Item NAFIS_BROADSWORD = new NafisSword(new Item.Settings());
-
+	
 	public static final Item COPPER_INGOT = new Item(new Item.Settings().group(NAFIS_GROUP));
 	
 	public static final Item SAW = new Item(new Item.Settings().group(NAFIS_GROUP));

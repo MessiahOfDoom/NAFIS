@@ -62,7 +62,7 @@ public class PartSetRegistry {
 		
 		Registry.register(Registry.ITEM, ident(materialName.getNamespace(), materialName.getPath() + "_tool_handle"), new BasicToolHandle(new Item.Settings().group(NAFIS_GROUP).maxCount(1), 
 																																		  mat.getMiningSpeedMultiplier(),
-																																		  -3F,
+																																		  -3.5F,
 																																		  TOOL_PART_BASIC_HANDLE,
 																																		  materialName));
 		Registry.register(Registry.ITEM, ident(materialName.getNamespace(), materialName.getPath() + "_weapon_handle"), new BasicToolHandle(new Item.Settings().group(NAFIS_GROUP).maxCount(1), 

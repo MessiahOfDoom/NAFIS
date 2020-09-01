@@ -43,7 +43,6 @@ public class ReplacePartRecipe extends AbstractForgeRecipe {
 					}
 					j++;
 				}
-				items.add(inv.getStack(i));
 			}
 		}
 		NafisTool.setComponents(out, items);
