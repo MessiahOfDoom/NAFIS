@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2020 Oliver Schneider
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the GNU General Public License version 3 (GPLv3)
+ * which accompanies this distribution, and is available at
+ * https://www.gnu.org/licenses/gpl-3.0-standalone.html
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ *******************************************************************************/
 package de.schneider_oliver.nafis.render;
 
 import java.util.ArrayList;
@@ -10,6 +20,7 @@ import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 
 public class CustomToolRenderer implements BuiltinItemRenderer{
 
@@ -21,6 +32,13 @@ public class CustomToolRenderer implements BuiltinItemRenderer{
 			ItemRenderer renderer = MinecraftClient.getInstance().getItemRenderer();
 			matrices.translate(0.5, 0.5, 0.5);
 			for(ItemStack s : stacks) {
+				if(s.getItem().equals(Items.BARRIER)) {
+					matrices.push();
+					matrices.scale(1F, 1F, 0.4F);
+					renderer.renderItem(s, ModelTransformation.Mode.NONE, light, overlay, matrices, vertexConsumers);
+					matrices.pop();
+					continue;
+				}
 				renderer.renderItem(s, ModelTransformation.Mode.NONE, light, overlay, matrices, vertexConsumers);
 			}
 		}

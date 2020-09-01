@@ -8,34 +8,17 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  *******************************************************************************/
-package de.schneider_oliver.nafis.item.item;
+package de.schneider_oliver.nafis.recipe.toolforge;
 
-import net.minecraft.item.ItemStack;
+import static de.schneider_oliver.nafis.recipe.toolforge.ForgeRecipeRegistry.ABSTRACT_FORGE;
 
-public class NafisSword extends NafisTool{
+public abstract class AbstractForgeRecipeReplacable extends AbstractForgeRecipe {
 
-	public NafisSword(Settings settings) {
-		super(settings);
+	public AbstractForgeRecipeReplacable(Object... ingredients) {
+		super(ingredients);
+		for(Object o: ingredients) {
+			ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new ReplacePartRecipe(this.getCraftedStackNoNBT().getItem(), o));
+		}
 	}
-
-	@Override
-	public int damageAfterMine(ItemStack stack) {
-		return 2;
-	}
-
-	@Override
-	public int damageAfterHit(ItemStack stack) {
-		return 1;
-	}
-
-	@Override
-	public boolean canLevelMining(ItemStack stack) {
-		return false;
-	}
-
-	@Override
-	public boolean canLevelAttack(ItemStack stack) {
-		return true;
-	}
-
+	
 }

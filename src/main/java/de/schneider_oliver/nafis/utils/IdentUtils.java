@@ -1,3 +1,13 @@
+/*******************************************************************************
+ * Copyright (c) 2020 Oliver Schneider
+ *
+ * This program and the accompanying materials
+ * are made available under the terms of the GNU General Public License version 3 (GPLv3)
+ * which accompanies this distribution, and is available at
+ * https://www.gnu.org/licenses/gpl-3.0-standalone.html
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ *******************************************************************************/
 package de.schneider_oliver.nafis.utils;
 
 import net.minecraft.util.Identifier;
@@ -17,7 +27,7 @@ public class IdentUtils {
 	public static final Identifier TOOL_PART_BROADSWORD_HEAD = ident("broadsword_head");
 	
 	public static Identifier ident(String name) {
-		return new Identifier(Reference.MOD_ID, name);
+		return new Identifier(Strings.MOD_ID, name);
 	}
 	
 	public static Identifier ident(String modid, String name) {
