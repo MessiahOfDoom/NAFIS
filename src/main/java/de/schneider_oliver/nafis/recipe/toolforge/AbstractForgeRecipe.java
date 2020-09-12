@@ -84,7 +84,7 @@ public abstract class AbstractForgeRecipe implements ForgeRecipe{
 		for(int i = 0; i < inv.size() - 1; i++) {
 			if(!inv.getStack(i).isEmpty())items.add(inv.getStack(i));
 		}
-		NafisTool.setComponents(out, items);
+		((NafisTool)out.getItem()).setComponents(out, items);
 		inv.setStack(inv.size() - 1, out);
 	}
 	

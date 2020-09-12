@@ -22,9 +22,14 @@ public class Strings {
 	
 	
 	public static final String TRANSLATION_KEY_DURABILITY = TRANSLATION_KEY_TOOL_BASE + ".durability";
-	
+
 	public static final String TRANSLATION_KEY_SPEED_LEVEL = TRANSLATION_KEY_TOOL_BASE + ".leveling.miningspeed";
 	public static final String TRANSLATION_KEY_DURABILITY_LEVEL = TRANSLATION_KEY_TOOL_BASE + ".leveling.durability";
 	public static final String TRANSLATION_KEY_ATTACK_LEVEL = TRANSLATION_KEY_TOOL_BASE + ".leveling.attackdamage";
 	public static final String TRANSLATION_KEY_ATTACKSPEED_LEVEL = TRANSLATION_KEY_TOOL_BASE + ".leveling.attackspeed";
+	
+	public static final String TRANSLATION_KEY_SPEED_XP = TRANSLATION_KEY_TOOL_BASE + ".levelingxp.miningspeed";
+	public static final String TRANSLATION_KEY_DURABILITY_XP = TRANSLATION_KEY_TOOL_BASE + ".levelingxp.durability";
+	public static final String TRANSLATION_KEY_ATTACK_XP = TRANSLATION_KEY_TOOL_BASE + ".levelingxp.attackdamage";
+	public static final String TRANSLATION_KEY_ATTACKSPEED_XP = TRANSLATION_KEY_TOOL_BASE + ".levelingxp.attackspeed";
 }

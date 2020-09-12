@@ -8,34 +8,22 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  *******************************************************************************/
-package de.schneider_oliver.nafis.item.item;
+package de.schneider_oliver.nafis.mixin;
 
-import net.minecraft.item.ItemStack;
+import java.util.UUID;
 
-public class NafisPickaxe extends AbstractNafisTool {
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Accessor;
 
-	public NafisPickaxe(Settings settings) {
-		super(settings);
-	}
+import net.minecraft.item.Item;
 
-	@Override
-	public int damageAfterMine(ItemStack stack) {
-		return 1;
-	}
+@Mixin(Item.class)
+public interface ItemMixin {
 
-	@Override
-	public int damageAfterHit(ItemStack stack) {
-		return 2;
-	}
-
-	@Override
-	public boolean canLevelMining(ItemStack stack) {
-		return true;
-	}
-
-	@Override
-	public boolean canLevelAttack(ItemStack stack) {
-		return false;
-	}
-
+	@Accessor("ATTACK_DAMAGE_MODIFIER_ID")
+	public static UUID getADMI() {throw new AssertionError();};
+	
+	@Accessor("ATTACK_SPEED_MODIFIER_ID")
+	public static UUID getASMI() {throw new AssertionError();};
+	
 }

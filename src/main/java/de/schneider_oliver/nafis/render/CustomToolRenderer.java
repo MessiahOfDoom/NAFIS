@@ -24,11 +24,22 @@ import net.minecraft.item.Items;
 
 public class CustomToolRenderer implements BuiltinItemRenderer{
 
+	private static CustomToolRenderer INSTANCE;
+	
+	public static CustomToolRenderer getInstance() {
+		return INSTANCE == null ? setInstance(new CustomToolRenderer()) : INSTANCE;
+	}
+	
+	private static CustomToolRenderer setInstance(CustomToolRenderer r) {
+		INSTANCE = r;
+		return INSTANCE;
+	}
+	
 	@Override
 	public void render(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
 		matrices.push();
 		if(!stack.isEmpty() && stack.getItem() instanceof NafisTool) {
-			ArrayList<ItemStack> stacks = NafisTool.getComponents(stack);
+			ArrayList<ItemStack> stacks = ((NafisTool)stack.getItem()).getComponents(stack);
 			ItemRenderer renderer = MinecraftClient.getInstance().getItemRenderer();
 			matrices.translate(0.5, 0.5, 0.5);
 			for(ItemStack s : stacks) {

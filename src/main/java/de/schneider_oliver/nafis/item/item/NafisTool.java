@@ -13,12 +13,11 @@ package de.schneider_oliver.nafis.item.item;
 import static de.schneider_oliver.nafis.utils.IdentUtils.IDENT_UNKNOWN;
 import static de.schneider_oliver.nafis.utils.IdentUtils.ident;
 import static de.schneider_oliver.nafis.utils.NBTKeys.*;
-import static de.schneider_oliver.nafis.utils.Strings.*;
+import static de.schneider_oliver.nafis.utils.Strings.TOOL_LEVEL_MODULE;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 import java.util.function.Consumer;
 
 import com.google.common.collect.HashMultimap;
@@ -26,10 +25,9 @@ import com.google.common.collect.Multimap;
 
 import de.schneider_oliver.nafis.config.ConfigModules;
 import de.schneider_oliver.nafis.config.ToolLevelingModule;
+import de.schneider_oliver.nafis.mixin.ItemMixin;
 import io.netty.buffer.Unpooled;
-import net.fabricmc.fabric.api.tool.attribute.v1.DynamicAttributeTool;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -42,24 +40,15 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.tag.Tag;
-import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TextColor;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public abstract class NafisTool extends Item implements DynamicAttributeTool{
+public interface NafisTool {
 
-	public static final UUID ATTACK_DAMAGE_UUID = UUID.fromString("16ea4d5a-63c3-4113-9656-49e8a91679f0");
-	public static final UUID ATTACK_SPEED_UUID = UUID.fromString("8f009d38-e413-4941-90ef-3e501cb74704");
-	
-	public NafisTool(Settings settings) {
-		super(settings.maxCount(1));
-	}
-
-	public static ItemStack setComponents(ItemStack stack, List<ItemStack> components) {
+	public default ItemStack setComponents(ItemStack stack, List<ItemStack> components) {
 		CompoundTag tag = new CompoundTag(); // KEY_COMPONENTS
 		CompoundTag tag2 = new CompoundTag(); // KEY_PROPERTIES
 		CompoundTag tag3 = stack.getOrCreateSubTag(KEY_OTHER);
@@ -76,7 +65,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return stack;
 	}
 
-	public static ArrayList<ItemStack> getComponents(ItemStack stack){
+	public default ArrayList<ItemStack> getComponents(ItemStack stack){
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_COMPONENTS);
 		ArrayList<ItemStack> out = new ArrayList<>();
 		for(String s: tag.getKeys()) {
@@ -94,7 +83,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return out;
 	}
 
-	public Identifier getToolType(ItemStack stack) {
+	public default Identifier getToolType(ItemStack stack) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_TYPE);
 		if(tag.contains(SUBKEY_TOOLHANDLER) && tag.contains(SUBKEY_TOOLTYPE)) {
 			return ident(tag.getString(SUBKEY_TOOLHANDLER), tag.getString(SUBKEY_TOOLTYPE));
@@ -102,7 +91,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return IDENT_UNKNOWN;
 	}
 
-	public float getMiningSpeedMultiplier(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
+	public default float getMiningSpeedMultiplier(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
 		float mult = 1;
 		if(ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
 			CompoundTag tag = stack.getOrCreateSubTag(KEY_LEVELING);
@@ -112,7 +101,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return getMiningSpeedMultiplierBase(stack, state, breakingEntity) * mult;
 	}
 
-	public float getMiningSpeedMultiplierBase(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
+	public default float getMiningSpeedMultiplierBase(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_PROPERTIES);
 		if(tag.contains(SUBKEY_SPEEDMULT)) {
 			return tag.getFloat(SUBKEY_SPEEDMULT);
@@ -120,12 +109,12 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return 0;
 	}
 
-	public int getMiningLevel(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
+	public default int getMiningLevel(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
 		if(isBroken(stack))return 0;
 		return getMiningLevelBase(stack, state, breakingEntity);
 	}
 	
-	public int getMiningLevelBase(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
+	public default int getMiningLevelBase(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_PROPERTIES);
 		if(tag.contains(SUBKEY_MININGLEVEL)) {
 			return tag.getInt(SUBKEY_MININGLEVEL);
@@ -133,7 +122,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return 0;
 	}
 
-	public int getMaxDamage(ItemStack stack) {
+	public default int getMaxDamage(ItemStack stack) {
 		float mult = 1;
 		if(ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
 			CompoundTag tag = stack.getOrCreateSubTag(KEY_LEVELING);
@@ -143,7 +132,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return (int)(getMaxDamageBase(stack) * mult);
 	}
 	
-	public int getMaxDamageBase(ItemStack stack) {
+	public default int getMaxDamageBase(ItemStack stack) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_PROPERTIES);
 		if(tag.contains(SUBKEY_DURABILITY)) {
 			return tag.getInt(SUBKEY_DURABILITY);
@@ -151,7 +140,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return 0;
 	}
 	
-	public static float getAttackModifier(ItemStack stack) {
+	public default float getAttackModifier(ItemStack stack) {
 		if(isBroken(stack))return 0;
 		float mult = 1;
 		if(ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
@@ -162,7 +151,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return getAttackModifierBase(stack) * mult;
 	}
 
-	public static float getAttackModifierBase(ItemStack stack) {
+	public default float getAttackModifierBase(ItemStack stack) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_PROPERTIES);
 		if(tag.contains(SUBKEY_ATTACKDAMAGE)) {
 			return tag.getFloat(SUBKEY_ATTACKDAMAGE);
@@ -170,7 +159,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return 0;
 	}
 	
-	public static float getAttackSpeedModifier(ItemStack stack) {
+	public default float getAttackSpeedModifier(ItemStack stack) {
 		float mult = 1;
 		if(ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
 			CompoundTag tag = stack.getOrCreateSubTag(KEY_LEVELING);
@@ -180,7 +169,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return getAttackSpeedModifierBase(stack) + mult;
 	}
 
-	public static float getAttackSpeedModifierBase(ItemStack stack) {
+	public default float getAttackSpeedModifierBase(ItemStack stack) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_PROPERTIES);
 		if(tag.contains(SUBKEY_ATTACKSPEED)) {
 			return tag.getFloat(SUBKEY_ATTACKSPEED);
@@ -198,11 +187,10 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return tag.getBoolean(SUBKEY_BROKEN);
 	}
 
-	public void incrementAmountRepaired(ItemStack stack, int materialsUsed) {
+	public default void incrementAmountRepaired(ItemStack stack, int materialsUsed) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_OTHER);
 		int i = tag.getInt(SUBKEY_REPAIREDCOUNT);
 		i += materialsUsed;
-		tag.putInt(SUBKEY_REPAIREDCOUNT, i);
 		int j = 0;
 		int k = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).durabilityRepairsNeeded.get().intValue();
 		
@@ -210,16 +198,15 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 			j++;
 			i -= k;
 		}
-		
+		tag.putInt(SUBKEY_REPAIREDCOUNT, i);
 		CompoundTag tag2 = stack.getOrCreateSubTag(KEY_LEVELING);
-		tag2.putInt(SUBKEY_REPAIREDLEVEL, j);
+		tag2.putInt(SUBKEY_REPAIREDLEVEL, tag2.getInt(SUBKEY_REPAIREDLEVEL) + j);
 	}
 	
-	public void incrementHardnessBroken(ItemStack stack, float hardnessBroken) {
+	public default void incrementHardnessBroken(ItemStack stack, float hardnessBroken) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_OTHER);
 		float f = tag.getFloat(SUBKEY_HARDNESSBROKEN);
 		f += hardnessBroken;
-		tag.putFloat(SUBKEY_HARDNESSBROKEN, f);
 		int j = 0;
 		float g = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).speedHardnessNeeded.get().floatValue();
 		
@@ -227,15 +214,15 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 			j++;
 			f -= g;
 		}
+		tag.putFloat(SUBKEY_HARDNESSBROKEN, f);
 		CompoundTag tag2 = stack.getOrCreateSubTag(KEY_LEVELING);
-		tag2.putInt(SUBKEY_SPEEDLEVEL, j);
+		tag2.putInt(SUBKEY_SPEEDLEVEL, tag2.getInt(SUBKEY_SPEEDLEVEL) + j);
 	}
 	
-	public void incrementAttacksDone(ItemStack stack, int attacksDone) {
+	public default void incrementAttacksDone(ItemStack stack, int attacksDone) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_OTHER);
 		int i = tag.getInt(SUBKEY_ATTACKSDONE);
 		i += attacksDone;
-		tag.putInt(SUBKEY_ATTACKSDONE, i);
 		int j = 0;
 		int k = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).attackSpeedAttacksNeeded.get().intValue();
 		
@@ -243,17 +230,16 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 			j++;
 			i -= k;
 		}
-		
+		tag.putInt(SUBKEY_ATTACKSDONE, i);
 		CompoundTag tag2 = stack.getOrCreateSubTag(KEY_LEVELING);
-		tag2.putInt(SUBKEY_ATTACKSPEEDLEVEL, j);
+		tag2.putInt(SUBKEY_ATTACKSPEEDLEVEL, tag2.getInt(SUBKEY_ATTACKSPEEDLEVEL) + j);
 	}
 	
-	public void incrementDamageDealt(ItemStack stack, float damageDealt) {
+	public default void incrementDamageDealt(ItemStack stack, float damageDealt) {
 		if(!(stack.getItem() instanceof NafisTool && canLevelAttack(stack)))return;
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_OTHER);
 		float f = tag.getFloat(SUBKEY_DAMAGEDEALT);
 		f += damageDealt;
-		tag.putFloat(SUBKEY_DAMAGEDEALT, f);
 		int j = 0;
 		float g = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).attackDamageNeeded.get().floatValue();
 		
@@ -261,28 +247,58 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 			j++;
 			f -= g;
 		}
+		tag.putFloat(SUBKEY_DAMAGEDEALT, f);
 		CompoundTag tag2 = stack.getOrCreateSubTag(KEY_LEVELING);
-		tag2.putInt(SUBKEY_DAMAGELEVEL, j);
+		tag2.putInt(SUBKEY_DAMAGELEVEL, tag2.getInt(SUBKEY_DAMAGELEVEL) + j);
 	}
 	
-	@Override
-	public boolean isDamageable() {
+	public int damageAfterMine(ItemStack stack);
+
+	public int damageAfterHit(ItemStack stack);
+	
+	public default String getHeadTranslationKey(ItemStack stack) {
+		CompoundTag tag = stack.getOrCreateSubTag(KEY_PROPERTIES);
+		if(tag.contains(SUBKEY_MATERIAL)) {
+			return tag.getString(SUBKEY_MATERIAL);
+		}
+		return "nafis.bugged";
+	}
+	
+
+	public boolean canLevelMining(ItemStack stack);
+	
+	public boolean canLevelAttack(ItemStack stack);
+	
+	public default Text getName(ItemStack stack) {
+		return new TranslatableText(((Item)(Object)this).getTranslationKey(), new TranslatableText(getHeadTranslationKey(stack)));
+	}
+	
+
+	public default Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(EquipmentSlot slot, ItemStack stack) {
+		if(slot != EquipmentSlot.MAINHAND) return ((Item)(Object)this).getAttributeModifiers(slot);
+		Multimap<EntityAttribute, EntityAttributeModifier> map = HashMultimap.create(2, 1);
+		map.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ItemMixin.getADMI(), "Weapon modifier", (double)getAttackModifier(stack), EntityAttributeModifier.Operation.ADDITION));
+		map.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ItemMixin.getADMI(), "Weapon modifier", (double)getAttackSpeedModifier(stack), EntityAttributeModifier.Operation.ADDITION));
+		return map;
+	}
+	
+	
+
+	
+	
+	public default boolean isDamageable() {
 		return true;
 	}
 
-	public int getEnchantability() {
+	public default int getEnchantability() {
 		return 0;
 	}
 
-	public boolean canRepair(ItemStack stack, ItemStack ingredient) {
+	public default boolean canRepair(ItemStack stack, ItemStack ingredient) {
 		return false;
 	}
 	
-	public abstract boolean canLevelMining(ItemStack stack);
-	
-	public abstract boolean canLevelAttack(ItemStack stack);
-	
-	public static Ingredient getRepairIngredient(ItemStack stack) {
+	public default Ingredient getRepairIngredient(ItemStack stack) {
 		CompoundTag tag = stack.getOrCreateSubTag(KEY_OTHER);
 		if(tag.contains(SUBKEY_REPAIRINGREDIENT)) {
 			return Ingredient.fromPacket(new PacketByteBuf(Unpooled.wrappedBuffer(tag.getByteArray(SUBKEY_REPAIRINGREDIENT))));
@@ -290,19 +306,15 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return Ingredient.EMPTY;
 	}
 
-	public int getMiningLevel(Tag<Item> tag, BlockState state, ItemStack stack, LivingEntity user) {
+	public default int getMiningLevel(Tag<Item> tag, BlockState state, ItemStack stack, LivingEntity user) {
 		return getMiningLevel(stack, state, user);
 	}
 
-	public float getMiningSpeedMultiplier(Tag<Item> tag, BlockState state, ItemStack stack, LivingEntity user) {
+	public default float getMiningSpeedMultiplier(Tag<Item> tag, BlockState state, ItemStack stack, LivingEntity user) {
 		return getMiningSpeedMultiplier(stack, state, user);
 	}
-
-	public abstract int damageAfterMine(ItemStack stack);
-
-	public abstract int damageAfterHit(ItemStack stack);
-
-	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+	
+	public default boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if(!isBroken(stack) && ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
 			incrementAttacksDone(stack, 1);
 		}
@@ -322,7 +334,7 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 		return true;
 	}
 
-	public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+	public default boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
 		if (!world.isClient && state.getHardness(world, pos) != 0.0F) {
 			if(!isBroken(stack) && ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
 				incrementHardnessBroken(stack, state.getHardness(world, pos));
@@ -342,67 +354,9 @@ public abstract class NafisTool extends Item implements DynamicAttributeTool{
 
 		return true;
 	}
-
-	public String getHeadTranslationKey(ItemStack stack) {
-		CompoundTag tag = stack.getOrCreateSubTag(KEY_PROPERTIES);
-		if(tag.contains(SUBKEY_MATERIAL)) {
-			return tag.getString(SUBKEY_MATERIAL);
-		}
-		return "nafis.bugged";
-	}
-
-	@Override
-	public Text getName(ItemStack stack) {
-		return new TranslatableText(getTranslationKey(), new TranslatableText(getHeadTranslationKey(stack)));
-	}
 	
-	public float postProcessMiningSpeed(Tag<Item> tag, BlockState state, ItemStack stack, /* @Nullable */ LivingEntity user, float currentSpeed, boolean isEffective) {
+	public default float postProcessMiningSpeed(Tag<Item> tag, BlockState state, ItemStack stack, /* @Nullable */ LivingEntity user, float currentSpeed, boolean isEffective) {
 		return isBroken(stack) ? Float.MIN_NORMAL : currentSpeed;
 	}
-	
-	@Override
-	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-		super.appendTooltip(stack, world, tooltip, context);
-		
-		if(context.isAdvanced() && ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
-			CompoundTag tag = stack.getOrCreateSubTag(KEY_OTHER);
-			
-			int i0 = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).durabilityRepairsNeeded.get().intValue();
-			int i1 = tag.getInt(SUBKEY_REPAIREDCOUNT) % i0;
-			tooltip.add(new TranslatableText(TRANSLATION_KEY_DURABILITY_LEVEL, i1, i0));
-			if(canLevelMining(stack)) {
-				float f0 = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).speedHardnessNeeded.get().floatValue();
-				float f1 = tag.getFloat(SUBKEY_HARDNESSBROKEN) % f0;
-				tooltip.add(new TranslatableText(TRANSLATION_KEY_SPEED_LEVEL, f1, f0));
-			}
-			if(canLevelAttack(stack)) {
-				float g0 = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).attackDamageNeeded.get().floatValue();
-				float g1 = tag.getFloat(SUBKEY_DAMAGEDEALT) % g0;
-				tooltip.add(new TranslatableText(TRANSLATION_KEY_ATTACK_LEVEL, g1, g0));
-				float h0 = ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).attackSpeedAttacksNeeded.get().floatValue();
-				float h1 = tag.getFloat(SUBKEY_ATTACKSDONE) % h0;
-				tooltip.add(new TranslatableText(TRANSLATION_KEY_ATTACKSPEED_LEVEL, h1, h0));
-			}
-		}
-		if(!context.isAdvanced()) {
-			MutableText brokenText = new TranslatableText(isBroken(stack) ? "Broken" : "");
-			brokenText.setStyle(brokenText.getStyle().withColor(TextColor.fromRgb(0xBB0000)));
-			tooltip.add(brokenText);
-
-			int i0 = stack.getMaxDamage();
-			int i1 = stack.getMaxDamage() - stack.getDamage();
-			tooltip.add(new TranslatableText(TRANSLATION_KEY_DURABILITY, i1, i0));
-		}
-		
-	}
-	
-	public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(EquipmentSlot slot, ItemStack stack) {
-		if(slot != EquipmentSlot.MAINHAND) return super.getAttributeModifiers(slot);
-		Multimap<EntityAttribute, EntityAttributeModifier> map = HashMultimap.create(2, 1);
-		map.put(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", (double)getAttackModifier(stack), EntityAttributeModifier.Operation.ADDITION));
-		map.put(EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", (double)getAttackSpeedModifier(stack), EntityAttributeModifier.Operation.ADDITION));
-		return map;
-	}
-	
 	
 }

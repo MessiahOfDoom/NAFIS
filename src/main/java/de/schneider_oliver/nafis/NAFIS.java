@@ -10,13 +10,14 @@
  *******************************************************************************/
 package de.schneider_oliver.nafis;
 
+import de.schneider_oliver.nafis.api.NafisAddonCommonInitializer;
 import de.schneider_oliver.nafis.block.BlockRegistry;
 import de.schneider_oliver.nafis.block.entity.BlockEntityRegistry;
 import de.schneider_oliver.nafis.config.ConfigModules;
 import de.schneider_oliver.nafis.item.ItemRegistry;
-import de.schneider_oliver.nafis.recipe.RecipeRegistry;
 import de.schneider_oliver.nafis.screen.ScreenHandlingRegistry;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 
 public class NAFIS implements ModInitializer{
 
@@ -27,7 +28,19 @@ public class NAFIS implements ModInitializer{
 		BlockEntityRegistry.register();
 		ItemRegistry.register();
 		ScreenHandlingRegistry.register();
-		RecipeRegistry.register();
+		
+		FabricLoader.getInstance().getEntrypoints("nafis:common", NafisAddonCommonInitializer.class).forEach(a -> {
+			a.initializeToolParts();
+		});
+		FabricLoader.getInstance().getEntrypoints("nafis:common", NafisAddonCommonInitializer.class).forEach(a -> {
+			a.initializeToolMaterials();
+		});
+		FabricLoader.getInstance().getEntrypoints("nafis:common", NafisAddonCommonInitializer.class).forEach(a -> {
+			a.initializeToolTypes();
+		});
+		FabricLoader.getInstance().getEntrypoints("nafis:common", NafisAddonCommonInitializer.class).forEach(a -> {
+			a.initializeOther();
+		});
 	}
 
 }

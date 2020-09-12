@@ -8,12 +8,12 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  *******************************************************************************/
-package de.schneider_oliver.nafis.recipe;
+package de.schneider_oliver.nafis.init;
 
 import static de.schneider_oliver.nafis.recipe.toolforge.ForgeRecipeRegistry.ABSTRACT_FORGE;
 import static de.schneider_oliver.nafis.utils.IdentUtils.*;
 
-import de.schneider_oliver.nafis.item.ItemRegistry;
+import de.schneider_oliver.nafis.recipe.RecipeToolRepair;
 import de.schneider_oliver.nafis.recipe.sets.NafisSets;
 import de.schneider_oliver.nafis.recipe.toolforge.AbstractForgeRecipeReplacable;
 import de.schneider_oliver.nafis.recipe.toolforge.ForgeRecipeRegistry;
@@ -26,40 +26,40 @@ public class RecipeRegistry {
 
 	public static SpecialRecipeSerializer<RecipeToolRepair> TOOL_REPAIR_SERIALIZER;
 
-	public static void register() {
+	static void register() {
 		ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new AbstractForgeRecipeReplacable(NafisSets.setByID(TOOL_PART_PICKAXE_HEAD), NafisSets.setByID(TOOL_PART_BASIC_HANDLE)) {
 
 			@Override
 			public ItemStack getCraftedStackNoNBT() {
-				return new ItemStack(ItemRegistry.NAFIS_PICKAXE);
+				return new ItemStack(ToolTypeRegistry.NAFIS_PICKAXE);
 			}
 		});
 		ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new AbstractForgeRecipeReplacable(NafisSets.setByID(TOOL_PART_AXE_HEAD), NafisSets.setByID(TOOL_PART_BASIC_HANDLE)) {
 
 			@Override
 			public ItemStack getCraftedStackNoNBT() {
-				return new ItemStack(ItemRegistry.NAFIS_AXE);
+				return new ItemStack(ToolTypeRegistry.NAFIS_AXE);
 			}
 		});
 		ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new AbstractForgeRecipeReplacable(NafisSets.setByID(TOOL_PART_SHOVEL_HEAD), NafisSets.setByID(TOOL_PART_BASIC_HANDLE)) {
 
 			@Override
 			public ItemStack getCraftedStackNoNBT() {
-				return new ItemStack(ItemRegistry.NAFIS_SHOVEL);
+				return new ItemStack(ToolTypeRegistry.NAFIS_SHOVEL);
 			}
 		});
 		ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new AbstractForgeRecipeReplacable(NafisSets.setByID(TOOL_PART_HOE_HEAD), NafisSets.setByID(TOOL_PART_BASIC_HANDLE)) {
 
 			@Override
 			public ItemStack getCraftedStackNoNBT() {
-				return new ItemStack(ItemRegistry.NAFIS_HOE);
+				return new ItemStack(ToolTypeRegistry.NAFIS_HOE);
 			}
 		});
 		ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new AbstractForgeRecipeReplacable(NafisSets.setByID(TOOL_PART_BROADSWORD_HEAD), NafisSets.setByID(TOOL_PART_WIDE_GUARD), NafisSets.setByID(TOOL_PART_WEAPON_HANDLE)) {
 
 			@Override
 			public ItemStack getCraftedStackNoNBT() {
-				return new ItemStack(ItemRegistry.NAFIS_BROADSWORD);
+				return new ItemStack(ToolTypeRegistry.NAFIS_BROADSWORD);
 			}
 		});
 		TOOL_REPAIR_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, ident("tool_repair"), new SpecialRecipeSerializer<RecipeToolRepair>(RecipeToolRepair::new));

@@ -15,17 +15,17 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 
-public class NafisHoe extends NafisTool {
+public class NafisHoe extends AbstractNafisTool {
 
 	public NafisHoe(Settings settings) {
 		super(settings);
 	}
 
 	public ActionResult useOnBlock(ItemUsageContext context) {
-		if(isBroken(context.getStack()))return ActionResult.PASS;
+		if(NafisTool.isBroken(context.getStack()))return ActionResult.PASS;
 		ActionResult result = Items.DIAMOND_HOE.useOnBlock(context);
 		if(context.getStack().getDamage() + 1 >= context.getStack().getMaxDamage()) {
-			setBroken(context.getStack(), true);
+			NafisTool.setBroken(context.getStack(), true);
 		}
 		return result;
 	}

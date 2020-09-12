@@ -31,7 +31,7 @@ public class ReplacePartRecipe extends AbstractForgeRecipe {
 	@Override
 	public void craft(Inventory inv) {
 		ItemStack out = inv.getStack(0).copy();
-		ArrayList<ItemStack> items = NafisTool.getComponents(out);
+		ArrayList<ItemStack> items = ((NafisTool)out.getItem()).getComponents(out);
 		for(int i = 0; i < inv.size() - 1; i++) {
 			if(!inv.getStack(i).isEmpty() && inv.getStack(i).getItem() instanceof AbstractToolComponent) {
 				int j = 0;
@@ -45,7 +45,7 @@ public class ReplacePartRecipe extends AbstractForgeRecipe {
 				}
 			}
 		}
-		NafisTool.setComponents(out, items);
+		((NafisTool)out.getItem()).setComponents(out, items);
 		inv.setStack(inv.size() - 1, out);
 	}
 

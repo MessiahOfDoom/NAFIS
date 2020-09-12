@@ -43,10 +43,14 @@
 	"block.nafis.reinforced_cobblestone" : "Reinforced Cobblestone",
 	
 	"nafis.tool.durability": "Durability: [%s / %s]",
-	"nafis.tool.leveling.durability": "Durability XP: [%s / %s]",
-	"nafis.tool.leveling.miningspeed": "Speed XP: [%s / %s]",
-	"nafis.tool.leveling.attackdamage": "Attack XP: [%s / %s]",
-	"nafis.tool.leveling.attackspeed": "Attack Speed XP: [%s / %s]",
+	"nafis.tool.leveling.durability": "Durability Level: %s",
+	"nafis.tool.leveling.miningspeed": "Speed Level: %s",
+	"nafis.tool.leveling.attackdamage": "Attack Level: %s",
+	"nafis.tool.leveling.attackspeed": "Attack Speed Level: %s",
+	"nafis.tool.levelingxp.durability": "Durability XP: [%s / %s]",
+	"nafis.tool.levelingxp.miningspeed": "Speed XP: [%s / %s]",
+	"nafis.tool.levelingxp.attackdamage": "Attack XP: [%s / %s]",
+	"nafis.tool.levelingxp.attackspeed": "Attack Speed XP: [%s / %s]",
 	
 	"itemGroup.nafis.nafis_tab" : "NAFIS",
 	

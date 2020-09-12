@@ -14,27 +14,15 @@ import static de.schneider_oliver.nafis.utils.IdentUtils.ident;
 
 import de.schneider_oliver.doomedfabric.item.ItemSelfRemainderImpl;
 import de.schneider_oliver.nafis.block.BlockRegistry;
-import de.schneider_oliver.nafis.item.item.NafisAxe;
-import de.schneider_oliver.nafis.item.item.NafisHoe;
-import de.schneider_oliver.nafis.item.item.NafisPickaxe;
-import de.schneider_oliver.nafis.item.item.NafisShovel;
-import de.schneider_oliver.nafis.item.item.NafisSword;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
 	public static final ItemGroup NAFIS_GROUP = FabricItemGroupBuilder.build(ident("nafis_tab"), () -> new ItemStack(BlockRegistry.BASIC_FORGE));
-	
-	public static final Item NAFIS_PICKAXE = new NafisPickaxe(new Item.Settings());
-	public static final Item NAFIS_AXE = new NafisAxe(new Item.Settings());
-	public static final Item NAFIS_SHOVEL = new NafisShovel(new Item.Settings());
-	public static final Item NAFIS_HOE = new NafisHoe(new Item.Settings());
-	public static final Item NAFIS_BROADSWORD = new NafisSword(new Item.Settings());
 	
 	public static final Item COPPER_INGOT = new Item(new Item.Settings().group(NAFIS_GROUP));
 	
@@ -54,11 +42,6 @@ public class ItemRegistry {
 
 	
 	public static void register() {
-		Registry.register(Registry.ITEM, ident("nafis_pickaxe"), NAFIS_PICKAXE);
-		Registry.register(Registry.ITEM, ident("nafis_axe"), NAFIS_AXE);
-		Registry.register(Registry.ITEM, ident("nafis_shovel"), NAFIS_SHOVEL);
-		Registry.register(Registry.ITEM, ident("nafis_hoe"), NAFIS_HOE);
-		Registry.register(Registry.ITEM, ident("nafis_broadsword"), NAFIS_BROADSWORD);
 		
 		Registry.register(Registry.ITEM, ident("copper_ingot"), COPPER_INGOT);
 		Registry.register(Registry.ITEM, ident("saw"), SAW);
@@ -74,11 +57,5 @@ public class ItemRegistry {
 		Registry.register(Registry.ITEM, ident("bp_wide_guard"), BLUEPRINT_WIDE_GUARD);
 		Registry.register(Registry.ITEM, ident("bp_broadsword_head"), BLUEPRINT_BROADSWORD_HEAD);
 		
-		PartSetRegistry.registerPartSet(ToolMaterials.WOOD, ident("wood"));
-		PartSetRegistry.registerPartSet(ToolMaterials.STONE, ident("stone"));
-		PartSetRegistry.registerPartSet(ToolMaterials.IRON, ident("iron"));
-		PartSetRegistry.registerPartSet(ToolMaterials.GOLD, ident("gold"));
-		PartSetRegistry.registerPartSet(ToolMaterials.DIAMOND, ident("diamond"));
-		NafisToolMaterials.registerAllParts();
 	}
 }

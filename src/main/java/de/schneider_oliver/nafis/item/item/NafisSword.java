@@ -12,7 +12,7 @@ package de.schneider_oliver.nafis.item.item;
 
 import net.minecraft.item.ItemStack;
 
-public class NafisSword extends NafisTool{
+public class NafisSword extends AbstractNafisTool{
 
 	public NafisSword(Settings settings) {
 		super(settings);

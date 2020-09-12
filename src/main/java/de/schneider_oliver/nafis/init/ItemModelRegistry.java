@@ -8,7 +8,7 @@
  *
  * SPDX-License-Identifier: GPL-3.0-only
  *******************************************************************************/
-package de.schneider_oliver.nafis.item;
+package de.schneider_oliver.nafis.init;
 
 import de.schneider_oliver.nafis.render.CustomToolRenderer;
 import net.fabricmc.api.EnvType;
@@ -16,14 +16,14 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.impl.client.rendering.BuiltinItemRendererRegistryImpl;
 
 @Environment(EnvType.CLIENT)
-public class ItemModelRegistry {
+class ItemModelRegistry {
 
-	public static void register() {
-		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_PICKAXE, new CustomToolRenderer());
-		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_AXE, new CustomToolRenderer());
-		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_SHOVEL, new CustomToolRenderer());
-		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_HOE, new CustomToolRenderer());
-		BuiltinItemRendererRegistryImpl.INSTANCE.register(ItemRegistry.NAFIS_BROADSWORD, new CustomToolRenderer());
+	static void register() {
+		BuiltinItemRendererRegistryImpl.INSTANCE.register(ToolTypeRegistry.NAFIS_PICKAXE, CustomToolRenderer.getInstance());
+		BuiltinItemRendererRegistryImpl.INSTANCE.register(ToolTypeRegistry.NAFIS_AXE, CustomToolRenderer.getInstance());
+		BuiltinItemRendererRegistryImpl.INSTANCE.register(ToolTypeRegistry.NAFIS_SHOVEL, CustomToolRenderer.getInstance());
+		BuiltinItemRendererRegistryImpl.INSTANCE.register(ToolTypeRegistry.NAFIS_HOE, CustomToolRenderer.getInstance());
+		BuiltinItemRendererRegistryImpl.INSTANCE.register(ToolTypeRegistry.NAFIS_BROADSWORD, CustomToolRenderer.getInstance());
 	}
 	
 }

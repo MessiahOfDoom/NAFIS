@@ -18,6 +18,7 @@ import com.google.common.collect.Lists;
 
 import de.schneider_oliver.nafis.config.ConfigModules;
 import de.schneider_oliver.nafis.config.ToolLevelingModule;
+import de.schneider_oliver.nafis.init.RecipeRegistry;
 import de.schneider_oliver.nafis.item.item.NafisTool;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.ItemStack;
@@ -53,7 +54,7 @@ public class RecipeToolRepair extends SpecialCraftingRecipe{
 			}
 		}
 		if(!toolStack.isEmpty()) {
-			Ingredient in = NafisTool.getRepairIngredient(toolStack);
+			Ingredient in = ((NafisTool)toolStack.getItem()).getRepairIngredient(toolStack);
 			for(ItemStack stack: list) {
 				if(!in.test(stack))return false;
 			}
@@ -84,7 +85,7 @@ public class RecipeToolRepair extends SpecialCraftingRecipe{
 		}
 		
 		if(!toolStack.isEmpty()) {
-			Ingredient in = NafisTool.getRepairIngredient(toolStack);
+			Ingredient in = ((NafisTool)toolStack.getItem()).getRepairIngredient(toolStack);
 			for(ItemStack stack: list) {
 				if(!in.test(stack))return ItemStack.EMPTY;
 			}

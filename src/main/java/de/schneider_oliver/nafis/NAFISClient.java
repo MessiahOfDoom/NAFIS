@@ -10,18 +10,21 @@
  *******************************************************************************/
 package de.schneider_oliver.nafis;
 
-import de.schneider_oliver.nafis.item.ItemModelRegistry;
+import de.schneider_oliver.nafis.api.NafisAddonClientInitializer;
 import de.schneider_oliver.nafis.screen.screen.BasicForgeScreen;
 import de.schneider_oliver.nafis.screen.screen.ImprovedForgeScreen;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 
 public class NAFISClient implements ClientModInitializer{
 
 	@Override
 	public void onInitializeClient() {
-		ItemModelRegistry.register();
 		BasicForgeScreen.register();
 		ImprovedForgeScreen.register();
+		FabricLoader.getInstance().getEntrypoints("nafis:client", NafisAddonClientInitializer.class).forEach(a -> {
+			a.registerNafisToolRenderer();
+		});
 	}
 
 }

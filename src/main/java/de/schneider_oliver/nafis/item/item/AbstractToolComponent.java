@@ -12,12 +12,10 @@ package de.schneider_oliver.nafis.item.item;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 
-public abstract class AbstractToolComponent extends Item{
+public abstract class AbstractToolComponent extends Item implements ToolComponent{
 
 	public Identifier materialIdentifier;
 	public Identifier partIdentifier;
@@ -27,10 +25,6 @@ public abstract class AbstractToolComponent extends Item{
 		this.materialIdentifier = materialIdentifier;
 		this.partIdentifier = partIdentifier;
 	}
-
-	public abstract CompoundTag writeStatsToTag(CompoundTag tagIn);
-	
-	public abstract CompoundTag writeOtherToTag(CompoundTag tagIn);
 	
 	public String translationKeyMaterial() {
 		return "material." + materialIdentifier.getNamespace() + "." + materialIdentifier.getPath();
@@ -40,14 +34,13 @@ public abstract class AbstractToolComponent extends Item{
 		return "part." + partIdentifier.getNamespace() + "." + partIdentifier.getPath();
 	}
 	
-	
 	@Override
 	public Text getName() {
-		return new TranslatableText(translationKeyPart(), new TranslatableText(translationKeyMaterial()));
+		return ToolComponent.super.getName();
 	}
 	
 	@Override
 	public Text getName(ItemStack stack) {
-		return new TranslatableText(translationKeyPart(), new TranslatableText(translationKeyMaterial()));
+		return ToolComponent.super.getName(stack);
 	}
 }
