@@ -1,6 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
-    "ingredients": [
+    "group":"NafisParts-WeaponHandle",
+	"ingredients": [
         {
             "item": "nafis:bp_weapon_handle"
         },

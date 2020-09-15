@@ -1,6 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
-    "ingredients": [
+    "group":"NafisBPs",
+	"ingredients": [
         {
             "item": "minecraft:wooden_axe"
         },

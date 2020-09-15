@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group":"NafisParts-AxeHead",
+	"ingredients": [
+        {
+            "item": "nafis:bp_axe_head"
+        },
+        {
+            "item": "minecraft:netherite_ingot"
+        },
+        {
+            "item": "minecraft:netherite_ingot"
+        },
+        {
+            "item": "minecraft:netherite_ingot"
+        }
+    ],
+    "result": {
+        "item": "nafis:netherite_axe_head",
+        "count": 1
+    }
+}

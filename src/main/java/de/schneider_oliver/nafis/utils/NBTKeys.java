@@ -19,6 +19,7 @@ public class NBTKeys {
 	public static final String KEY_PROPERTIES = MOD_ID + ".properties";
 	public static final String KEY_OTHER = MOD_ID + ".other";
 	public static final String KEY_LEVELING = MOD_ID + ".level";
+	public static final String KEY_MODIFIER = MOD_ID + ".modifiers";
 	
 	
 	public static final String SUBKEY_COMPONENT = "component_";

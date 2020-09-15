@@ -1,6 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
-    "ingredients": [
+    "group":"NafisParts-HoeHead",
+	"ingredients": [
         {
             "item": "nafis:bp_hoe_head"
         },

@@ -58,7 +58,7 @@ public class RecipeToolRepair extends SpecialCraftingRecipe{
 			for(ItemStack stack: list) {
 				if(!in.test(stack))return false;
 			}
-			return !list.isEmpty() && list.size() <= Math.ceil(toolStack.getDamage() * 4F / toolStack.getMaxDamage());
+			return !list.isEmpty() && list.size() <= Math.ceil(toolStack.getDamage() * ((NafisTool)toolStack.getItem()).getRepairCost(toolStack) / toolStack.getMaxDamage());
 		}
 
 		return false;
@@ -90,13 +90,13 @@ public class RecipeToolRepair extends SpecialCraftingRecipe{
 				if(!in.test(stack))return ItemStack.EMPTY;
 			}
 			
-			if(!list.isEmpty() && list.size() <= Math.ceil(toolStack.getDamage() * 4F / toolStack.getMaxDamage())) {
+			if(!list.isEmpty() && list.size() <= Math.ceil(toolStack.getDamage() * ((NafisTool)toolStack.getItem()).getRepairCost(toolStack) / toolStack.getMaxDamage())) {
 				for (int i = 0; i < list.size(); i++) {
-					int j = Math.min(toolStack.getDamage(), (int)Math.ceil(toolStack.getMaxDamage() / 4F));
+					int j = Math.min(toolStack.getDamage(), (int)Math.ceil(toolStack.getMaxDamage() / ((NafisTool)toolStack.getItem()).getRepairCost(toolStack)));
 					toolStack.setDamage(toolStack.getDamage() - j);
 				}
 				NafisTool.setBroken(toolStack, false);
-				if(!NafisTool.isBroken(toolStack) && ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
+				if(ConfigModules.<ToolLevelingModule>getCachedModuleByName(TOOL_LEVEL_MODULE, false).levelingEnabled.get()) {
 					((NafisTool)toolStack.getItem()).incrementAmountRepaired(toolStack, list.size());
 				}
 				return toolStack;

@@ -1,0 +1,8 @@
+{
+    "parent": "nafis:item/presets/hoe_head",
+	"textures": {
+        "t1": "nafis:item/tool_head_netherite_1",
+        "t2": "nafis:item/tool_head_netherite_2",
+        "t3": "nafis:item/tool_head_netherite_3"
+    }
+}

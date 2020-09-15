@@ -1,6 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
-    "ingredients": [
+    "group":"NafisParts-PickaxeHead",
+	"ingredients": [
         {
             "item": "nafis:bp_pickaxe_head"
         },

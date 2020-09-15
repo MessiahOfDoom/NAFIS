@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group":"NafisParts-WideGuard",
+	"ingredients": [
+        {
+            "item": "nafis:bp_wide_guard"
+        },
+        {
+            "item": "minecraft:netherite_ingot"
+        }
+    ],
+    "result": {
+        "item": "nafis:netherite_wide_guard",
+        "count": 1
+    }
+}

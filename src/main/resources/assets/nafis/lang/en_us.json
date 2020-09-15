@@ -13,6 +13,7 @@
 	"material.nafis.iron" : "Iron",
 	"material.nafis.gold" : "Golden",
 	"material.nafis.diamond" : "Diamond",
+	"material.nafis.netherite" : "Netherite",
 	"material.nafis.copper" : "Copper",
 	"material.nafis.reinforced_stone" : "Reinforced Stone",
 	
@@ -51,6 +52,15 @@
 	"nafis.tool.levelingxp.miningspeed": "Speed XP: [%s / %s]",
 	"nafis.tool.levelingxp.attackdamage": "Attack XP: [%s / %s]",
 	"nafis.tool.levelingxp.attackspeed": "Attack Speed XP: [%s / %s]",
+	
+	"nafis.modifier.cheap": "Cheap%s",
+	"nafis.modifier.dull": "Dull%s",
+	"nafis.modifier.durable": "Durable%s",
+	"nafis.modifier.shiny": "Shiny%s",
+	"nafis.modifier.heavy": "Heavy%s",
+	"nafis.modifier.hellish": "Hellish%s",
+	
+	"nafis.modifier.efficient": "Efficient%s",
 	
 	"itemGroup.nafis.nafis_tab" : "NAFIS",
 	

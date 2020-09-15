@@ -1,6 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
-    "ingredients": [
+    "group":"NafisParts-ShovelHead",
+	"ingredients": [
         {
             "item": "nafis:bp_shovel_head"
         },

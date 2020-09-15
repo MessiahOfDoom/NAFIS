@@ -10,10 +10,16 @@
  *******************************************************************************/
 package de.schneider_oliver.nafis.item.item;
 
+import java.util.List;
+
+import de.schneider_oliver.nafis.modifiers.ModifierRegistry;
+import de.schneider_oliver.nafis.modifiers.modifiers.Modifier;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
 
 public abstract class AbstractToolComponent extends Item implements ToolComponent{
 
@@ -42,5 +48,18 @@ public abstract class AbstractToolComponent extends Item implements ToolComponen
 	@Override
 	public Text getName(ItemStack stack) {
 		return ToolComponent.super.getName(stack);
+	}
+	
+	@Override
+	public Identifier getMaterialIdentifier() {
+		return materialIdentifier;
+	}
+	
+	@Override
+	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+		super.appendTooltip(stack, world, tooltip, context);
+		for(Modifier m: ModifierRegistry.getModifiersByMaterial(getMaterialIdentifier())) {
+			tooltip.add(m.getTooltip(stack));
+		}
 	}
 }

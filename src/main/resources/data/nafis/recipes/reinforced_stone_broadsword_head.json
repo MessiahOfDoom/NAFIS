@@ -1,6 +1,7 @@
 {
     "type": "minecraft:crafting_shapeless",
-    "ingredients": [
+    "group":"NafisParts-BroadswordHead",
+	"ingredients": [
         {
             "item": "nafis:bp_broadsword_head"
         },
