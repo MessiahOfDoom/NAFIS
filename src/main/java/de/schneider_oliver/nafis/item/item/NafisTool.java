@@ -386,13 +386,14 @@ public interface NafisTool {
 		}
 		
 		ItemStack stack2 = stack.copy();
-		if(stack2.damage(damageAfterHitInternal(stack, target), attacker != null ? attacker.getRandom() : new Random(), null)) {
+		int damage = damageAfterHitInternal(stack, target);
+		if(stack2.damage(damage, attacker != null ? attacker.getRandom() : new Random(), null)) {
 			stack.damage(stack.getMaxDamage() - 1 - stack.getDamage(), attacker, (Consumer<LivingEntity>)((e) -> {
 				((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 			}));
 			setBroken(stack, true);
 		}else {
-			stack.damage(damageAfterHitInternal(stack, target), attacker, (Consumer<LivingEntity>)((e) -> {
+			stack.damage(damage, attacker, (Consumer<LivingEntity>)((e) -> {
 				((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 			}));
 		}
@@ -408,13 +409,14 @@ public interface NafisTool {
 				incrementHardnessBroken(stack, state.getHardness(world, pos));
 			}
 			ItemStack stack2 = stack.copy();
-			if(stack2.damage(damageAfterMineInternal(stack, state), miner != null ? miner.getRandom() : new Random(), null)) {
+			int damage = damageAfterMineInternal(stack, state);
+			if(stack2.damage(damage, miner != null ? miner.getRandom() : new Random(), null)) {
 				stack.damage(stack.getMaxDamage() - 1 - stack.getDamage(), miner, (Consumer<LivingEntity>)((e) -> {
 					((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 				}));
 				setBroken(stack, true);
 			}else {
-				stack.damage(damageAfterMineInternal(stack, state), miner, (Consumer<LivingEntity>)((e) -> {
+				stack.damage(damage, miner, (Consumer<LivingEntity>)((e) -> {
 					((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 				}));
 			}
