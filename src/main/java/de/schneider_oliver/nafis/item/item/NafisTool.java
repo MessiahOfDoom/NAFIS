@@ -386,13 +386,13 @@ public interface NafisTool {
 		}
 		
 		ItemStack stack2 = stack.copy();
-		if(stack2.damage(damageAfterHit(stack), attacker != null ? attacker.getRandom() : new Random(), null)) {
+		if(stack2.damage(damageAfterHitInternal(stack, target), attacker != null ? attacker.getRandom() : new Random(), null)) {
 			stack.damage(stack.getMaxDamage() - 1 - stack.getDamage(), attacker, (Consumer<LivingEntity>)((e) -> {
 				((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 			}));
 			setBroken(stack, true);
 		}else {
-			stack.damage(damageAfterHit(stack), attacker, (Consumer<LivingEntity>)((e) -> {
+			stack.damage(damageAfterHitInternal(stack, target), attacker, (Consumer<LivingEntity>)((e) -> {
 				((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 			}));
 		}
@@ -408,19 +408,35 @@ public interface NafisTool {
 				incrementHardnessBroken(stack, state.getHardness(world, pos));
 			}
 			ItemStack stack2 = stack.copy();
-			if(stack2.damage(damageAfterMine(stack), miner != null ? miner.getRandom() : new Random(), null)) {
+			if(stack2.damage(damageAfterMineInternal(stack, state), miner != null ? miner.getRandom() : new Random(), null)) {
 				stack.damage(stack.getMaxDamage() - 1 - stack.getDamage(), miner, (Consumer<LivingEntity>)((e) -> {
 					((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 				}));
 				setBroken(stack, true);
 			}else {
-				stack.damage(damageAfterMine(stack), miner, (Consumer<LivingEntity>)((e) -> {
+				stack.damage(damageAfterMineInternal(stack, state), miner, (Consumer<LivingEntity>)((e) -> {
 					((LivingEntity) e).sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
 				}));
 			}
 		}
 
 		return true;
+	}
+	
+	public default int damageAfterMineInternal(ItemStack stack, BlockState state) {
+		return damageAfterMine(stack) + damageAfterMineInternalMods(stack, state);
+	}
+	
+	public default int damageAfterMineInternalMods(ItemStack stack, BlockState state) {
+		return getModifiers(stack).stream().map(a -> a.damageAfterMineMod(stack, state)).reduce(0, (a, b) -> a+b);
+	}
+	
+	public default int damageAfterHitInternal(ItemStack stack, LivingEntity target) {
+		return damageAfterHit(stack) + damageAfterHitInternalMods(stack, target);
+	}
+	
+	public default int damageAfterHitInternalMods(ItemStack stack, LivingEntity target) {
+		return getModifiers(stack).stream().map(a -> a.damageAfterHitMod(stack, target)).reduce(0, (a, b) -> a+b);
 	}
 	
 	public default float postProcessMiningSpeed(Tag<Item> tag, BlockState state, ItemStack stack, /* @Nullable */ LivingEntity user, float currentSpeed, boolean isEffective) {
