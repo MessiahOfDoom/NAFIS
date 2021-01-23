@@ -41,4 +41,19 @@ public class DullModifier extends AbstractModifier{
 		return 0.8F;
 	}
 	
+	@Override
+	public float getMiningSpeedMult(ItemStack stack, BlockState state, LivingEntity breakingEntity) {
+		return (float)Math.pow(1.5, getLevel(stack)); 
+	}
+	
+	@Override
+	public float getAttackSpeedMult(ItemStack stack) {
+		return (float)Math.pow(1.5, getLevel(stack)); 
+	}
+	
+	@Override
+	public float getAttackMod(ItemStack stack) {
+		return -1F;
+	}
+	
 }

@@ -12,10 +12,13 @@ package de.schneider_oliver.nafis.item;
 
 import static de.schneider_oliver.nafis.utils.IdentUtils.ident;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
 import de.schneider_oliver.nafis.api.ToolPartFactory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -23,6 +26,7 @@ import net.minecraft.util.registry.Registry;
 public class PartSetRegistry {
 
 	private static HashMap<String, ToolPartFactory> factories = new HashMap<>();
+	private static ArrayList<Item> parts = new ArrayList<>();
 	
 	public static boolean addFactory(String identifierSuffix, ToolPartFactory factory) {
 		return addFactory(identifierSuffix, factory, false);
@@ -35,8 +39,14 @@ public class PartSetRegistry {
 	
 	public static void registerPartSet(ToolMaterial mat, Identifier materialName) {
 		for(Entry<String, ToolPartFactory> entry: factories.entrySet()) {
-			Registry.register(Registry.ITEM, ident(materialName.getNamespace(), materialName.getPath() + entry.getKey()), entry.getValue().create(mat, materialName).asItem());
+			parts.add(Registry.register(Registry.ITEM, ident(materialName.getNamespace(), materialName.getPath() + entry.getKey()), entry.getValue().create(mat, materialName).asItem()));
 		}
 	}
 	
+	static ItemStack getPartDisplayStack() {
+		if(parts.size() > 0) {
+			return new ItemStack(parts.get(0));
+		}
+		return ItemStack.EMPTY;
+	}
 }

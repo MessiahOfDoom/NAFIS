@@ -23,6 +23,7 @@ import net.minecraft.util.registry.Registry;
 public class ItemRegistry {
 
 	public static final ItemGroup NAFIS_GROUP = FabricItemGroupBuilder.build(ident("nafis_tab"), () -> new ItemStack(BlockRegistry.BASIC_FORGE));
+	public static final ItemGroup NAFIS_PART_GROUP = FabricItemGroupBuilder.build(ident("nafis_parts"), PartSetRegistry::getPartDisplayStack);
 	
 	public static final Item COPPER_INGOT = new Item(new Item.Settings().group(NAFIS_GROUP));
 	
