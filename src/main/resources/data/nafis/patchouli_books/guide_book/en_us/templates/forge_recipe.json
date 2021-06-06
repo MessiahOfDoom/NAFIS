@@ -1,0 +1,44 @@
+{
+	"components": [
+		{
+			"type": "image",
+			"image": "nafis:textures/screen/guide_forge_recipe.png",
+			"width": 128,
+			"height": 128,
+			"texture_width": 128,
+			"texture_height": 128
+		},
+		{
+			"type": "item",
+			"item": "#input_0",
+			"x": 46,
+			"y": 18
+		},
+		{
+			"type": "item",
+			"item": "#input_1",
+			"x": 46,
+			"y": 70
+		},
+		{
+			"type": "item",
+			"item": "#input_2",
+			"x": 19,
+			"y": 58
+		},
+		{
+			"type": "item",
+			"item": "#input_3",
+			"x": 19,
+			"y": 30
+		},
+		{
+			"type": "item",
+			"item": "#actual_output",
+			"x": 94,
+			"y": 44,
+			"link_recipe": true
+		}
+	],
+	"processor": "de.schneider_oliver.nafis.recipe.toolforge.ToolForgeRecipeComponentProcessor"
+}

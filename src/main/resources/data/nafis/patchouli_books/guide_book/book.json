@@ -1,0 +1,8 @@
+{
+	"name": "NAFIS Guide",
+	"landing_text": "Welcome to the ingame documentation of NAFIS, your one-stop-shop for understanding this mess I've fabricated.",
+	"version": 1,
+	"book_texture": "nafis:textures/screen/guide_book.png",
+	"model": "patchouli:book_purple",
+	"show_progress": false
+}

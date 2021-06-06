@@ -1,0 +1,52 @@
+{
+	"name": "Tool Recipes",
+	"icon": "nafis:improved_forge",
+	"category": "nafis:crafting",
+	"pages": [
+		{
+			"type": "text",
+			"text": "Here you can find a list of all tool recipes. Do note that only one combination of components is shown per tool, but you can assume any material to work in its place instead.$(br2)Additionally you can replace any tool part by placing the Tool in the upper slot, and the new component in the bottom slot."
+
+		},
+		{
+			"type": "nafis:forge_recipe",
+			"input_0": "nafis:iron_pickaxe_head",
+			"input_1": "nafis:copper_tool_handle",
+			"input_2": "minecraft:air",
+			"input_3": "minecraft:air",
+			"no_nbt_output": "nafis:nafis_pickaxe"
+		},
+		{
+			"type": "nafis:forge_recipe",
+			"input_0": "nafis:gold_axe_head",
+			"input_1": "nafis:netherite_tool_handle",
+			"input_2": "minecraft:air",
+			"input_3": "minecraft:air",
+			"no_nbt_output": "nafis:nafis_axe"
+		},
+		{
+			"type": "nafis:forge_recipe",
+			"input_0": "nafis:diamond_shovel_head",
+			"input_1": "nafis:wood_tool_handle",
+			"input_2": "minecraft:air",
+			"input_3": "minecraft:air",
+			"no_nbt_output": "nafis:nafis_shovel"
+		},
+		{
+			"type": "nafis:forge_recipe",
+			"input_0": "nafis:reinforced_stone_hoe_head",
+			"input_1": "nafis:diamond_tool_handle",
+			"input_2": "minecraft:air",
+			"input_3": "minecraft:air",
+			"no_nbt_output": "nafis:nafis_hoe"
+		},
+		{
+			"type": "nafis:forge_recipe",
+			"input_0": "nafis:diamond_broadsword_head",
+			"input_1": "nafis:stone_wide_guard",
+			"input_2": "nafis:wood_weapon_handle",
+			"input_3": "minecraft:air",
+			"no_nbt_output": "nafis:nafis_shovel"
+		}
+	]
+}

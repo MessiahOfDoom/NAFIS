@@ -20,7 +20,7 @@ import net.minecraft.util.Identifier;
 
 public class ForgeRecipeRegistry {
 
-	private static HashMap<Identifier, ArrayList<ForgeRecipe>> recipes = new HashMap<>();
+	public static final HashMap<Identifier, ArrayList<ForgeRecipe>> recipes = new HashMap<>();
 	public static final Identifier ABSTRACT_FORGE = ident("abstract_forge");
 	
 	public static void addRecipe(Identifier identifier, ForgeRecipe recipe) {

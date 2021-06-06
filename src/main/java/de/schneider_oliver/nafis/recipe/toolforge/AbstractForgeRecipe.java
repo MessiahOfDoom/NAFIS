@@ -11,6 +11,7 @@
 package de.schneider_oliver.nafis.recipe.toolforge;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import de.schneider_oliver.nafis.item.item.NafisTool;
@@ -28,6 +29,31 @@ public abstract class AbstractForgeRecipe implements ForgeRecipe{
 		this.ingredients = ingredients;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<List<ItemStack>> getInputs(){
+		ArrayList<List<ItemStack>> tll = new ArrayList<>();
+		for(Object o: ingredients) {
+			ArrayList<ItemStack> bll = new ArrayList<>();
+			if(o instanceof Tag) {
+				for(Item i: ((Tag<Item>)o).values()) {
+					bll.add(new ItemStack(i));
+				}
+			}else if(o instanceof Set) {
+				for(Item i: (Set<Item>)o) {
+					bll.add(new ItemStack(i));
+				}
+			}else if(o instanceof ItemStack) {
+				bll.add((ItemStack)o);
+			}else if(o instanceof Item) {
+				bll.add(new ItemStack((Item)o));
+			}else if(o instanceof Block) {
+				bll.add(new ItemStack((Block)o));
+			}
+			
+			if(!bll.isEmpty())tll.add(bll);
+		}
+		return tll;
+	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
@@ -88,7 +114,7 @@ public abstract class AbstractForgeRecipe implements ForgeRecipe{
 		inv.setStack(inv.size() - 1, out);
 	}
 	
-	public abstract ItemStack getCraftedStackNoNBT();
+	
 	
 
 	

@@ -10,6 +10,8 @@
  *******************************************************************************/
 package de.schneider_oliver.nafis.recipe.toolforge;
 
+import java.util.List;
+
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 
@@ -29,4 +31,8 @@ public interface ForgeRecipe {
 	default boolean areStacksEqualIgnoreCount(ItemStack left, ItemStack right) {
 		return ItemStack.areItemsEqual(left, right) && ItemStack.areTagsEqual(left, right);
 	}
+	
+	public List<List<ItemStack>> getInputs();
+	
+	public ItemStack getCraftedStackNoNBT();
 }

@@ -13,6 +13,7 @@ package de.schneider_oliver.nafis.init;
 import static de.schneider_oliver.nafis.recipe.toolforge.ForgeRecipeRegistry.ABSTRACT_FORGE;
 import static de.schneider_oliver.nafis.utils.IdentUtils.*;
 
+import de.schneider_oliver.nafis.recipe.RecipeGuideBook;
 import de.schneider_oliver.nafis.recipe.RecipeToolRepair;
 import de.schneider_oliver.nafis.recipe.sets.NafisSets;
 import de.schneider_oliver.nafis.recipe.toolforge.AbstractForgeRecipeReplacable;
@@ -25,6 +26,7 @@ public class RecipeRegistry {
 
 
 	public static SpecialRecipeSerializer<RecipeToolRepair> TOOL_REPAIR_SERIALIZER;
+	public static SpecialRecipeSerializer<RecipeGuideBook> GUIDE_SERIALIZER;
 
 	static void register() {
 		ForgeRecipeRegistry.addRecipe(ABSTRACT_FORGE, new AbstractForgeRecipeReplacable(NafisSets.setByID(TOOL_PART_PICKAXE_HEAD), NafisSets.setByID(TOOL_PART_BASIC_HANDLE)) {
@@ -63,6 +65,7 @@ public class RecipeRegistry {
 			}
 		});
 		TOOL_REPAIR_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, ident("tool_repair"), new SpecialRecipeSerializer<RecipeToolRepair>(RecipeToolRepair::new));
+		GUIDE_SERIALIZER = Registry.register(Registry.RECIPE_SERIALIZER, ident("guide_book"), new SpecialRecipeSerializer<RecipeGuideBook>(RecipeGuideBook::new));
 		
 	}
 

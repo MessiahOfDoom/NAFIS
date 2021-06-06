@@ -32,11 +32,11 @@ import net.minecraft.util.registry.Registry;
 
 public class BlockRegistry {
 
-	public static final Material ROCK = new FabricMaterialBuilder(DyeColor.LIGHT_GRAY).build();
+	private static final Material ROCK = new FabricMaterialBuilder(DyeColor.LIGHT_GRAY).build();
 	
 	public static final AbstractForgeBlock BASIC_FORGE = new BasicForgeBlock(FabricBlockSettings.of(ROCK).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).strength(3, 10));
 	public static final AbstractForgeBlock IMPROVED_FORGE = new ImprovedForgeBlock(FabricBlockSettings.of(ROCK).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).strength(3, 10));
-	public static final Block COPPER_ORE = new AutoOreBlock(FabricBlockSettings.of(ROCK).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).strength(2, 5));
+	public static final Block COPPER_ORE = new AutoOreBlock(FabricBlockSettings.of(ROCK).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).strength(2, 5), ident("copper_ore"));
 	public static final Block COPPER_BLOCK = new Block(FabricBlockSettings.of(ROCK).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).strength(2, 5));
 	public static final Block REINFORCED_STONE = new Block(FabricBlockSettings.of(ROCK).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).strength(4, 50));
 	public static final Block REINFORCED_COBBLESTONE = new Block(FabricBlockSettings.of(ROCK).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).strength(4, 50));
@@ -44,7 +44,7 @@ public class BlockRegistry {
 	public static void register() {
 		register(BASIC_FORGE, ident("basic_forge"));
 		register(IMPROVED_FORGE, ident("improved_forge"));
-		registerOre(COPPER_ORE, ident("copper_ore"));
+		registerOre(COPPER_ORE);
 		register(COPPER_BLOCK, ident("copper_block"));
 		register(REINFORCED_STONE, ident("reinforced_stone"));
 		register(REINFORCED_COBBLESTONE, ident("reinforced_cobblestone"));
@@ -55,9 +55,9 @@ public class BlockRegistry {
 		Registry.register(Registry.ITEM, identifier, new BlockItem(block, new Item.Settings().group(NAFIS_GROUP)));
 	}
 	
-	public static void registerOre(Block block, Identifier identifier) {
-		Registry.register(Registry.BLOCK, identifier, block);
-		Registry.register(Registry.ITEM, identifier, new BlockItem(block, new Item.Settings().group(NAFIS_GROUP)));
+	public static void registerOre(Block block) {
+		Registry.register(Registry.BLOCK, ((AutoOre) block).getIdentifier(), block);
+		Registry.register(Registry.ITEM, ((AutoOre) block).getIdentifier(), new BlockItem(block, new Item.Settings().group(NAFIS_GROUP)));
 		AutoOreRegistry.registerOre((AutoOre) block);
 	}
 	

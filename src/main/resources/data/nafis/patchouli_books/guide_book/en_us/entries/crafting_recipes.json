@@ -1,0 +1,134 @@
+{
+	"name": "Crafting Recipes",
+	"icon": "minecraft:crafting_table",
+	"category": "nafis:crafting",
+	"pages": [
+		{
+			"type": "text",
+			"text": "The first thing you will need in order to create tools with this mod is a forge. To create one, you will first need some reinforced cobblestone."
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:reinforced_cobblestone",
+			"recipe2": "nafis:reinforced_cobblestone_multi"
+		},
+		{
+			"title": " ",
+			"type": "smelting",
+			"recipe": "nafis:reinforced_stone",
+			"text": "You will then need to smelt some of your reinforced cobblestone down into reinforced stone."
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:basic_forge",
+			"text": "Finally, you can now make yourself a basic forge out of the materials you just got."
+		},
+		{
+			"type": "text",
+			"text": "To improve the forge and unlock the ability to make a weapon, you will need to create a saw, which you can then combine with your basic forge."
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:saw",
+			"recipe2": "nafis:improved_forge"
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_empty",
+			"text": "The other main thing you will need in order to create tools with this mod are some empty blueprints."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_tool_handle",
+			"text": "One component most tools will need, is the tool handle."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_weapon_handle",
+			"text": "Weapons on the other hand mostly require weapon handles."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_pickaxe_head",
+			"text": "To create a pickaxe, you are going to need its respective tool head blueprint."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_axe_head",
+			"text": "To create an axe, you are going to need its respective tool head blueprint."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_shovel_head",
+			"text": "To create a shovel, you are going to need its respective tool head blueprint."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_hoe_head",
+			"text": "To create a hoe, you are going to need its respective tool head blueprint."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_broadsword_head",
+			"text": "To create a broadsword, you are going to need its respective tool head blueprint."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:bp_wide_guard",
+			"text": "To create a broadsword, you are also going to need a wide guard blueprint."
+
+		},
+		{
+			"type": "text",
+			"text": "After you have acquired your component blueprints, you can combine them with the material of your choice to get an actual component.$(br2)Do note that only one material is shown per recipe, however any tool material will work in its place."
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:copper_pickaxe_head",
+			"recipe2": "nafis:diamond_axe_head"
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:gold_shovel_head",
+			"recipe2": "nafis:iron_hoe_head"
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:netherite_tool_handle",
+			"recipe2": "nafis:reinforced_stone_weapon_handle"
+
+		},
+		{
+			"title": " ",
+			"type": "crafting",
+			"recipe": "nafis:stone_broadsword_head",
+			"recipe2": "nafis:wood_wide_guard"
+		}
+	]
+}
